@@ -1,0 +1,12 @@
+{
+    "platforms": [
+        "claude",
+        "codex"
+    ],
+    "skillVersions": [
+        {
+            "id": "unity-mcp-workflow",
+            "version": "1.0.1"
+        }
+    ]
+}

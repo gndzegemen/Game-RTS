@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4905385659050678346}
   - component: {fileID: 1864877414331851267}
   - component: {fileID: 9201416133294498689}
-  - component: {fileID: -5533241235143841959}
+  - component: {fileID: 4419118422653486610}
   m_Layer: 0
   m_Name: lumbermillA
   m_TagString: lumbermillA
@@ -31,6 +31,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5491560384211002521}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
@@ -38,7 +39,6 @@ Transform:
   m_Children:
   - {fileID: 3580439777955174851}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2601726715472149855
 MeshFilter:
@@ -65,6 +65,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -90,9 +95,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &4843749167646592905
 MonoBehaviour:
@@ -106,9 +113,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a11d11c82bbce4dcfa8fb4e173d1c4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingType: 1
+  team: 1
+  displayName: Lumbermill
   cost: 100
-  name: Lumbermill
   sprite: {fileID: 21300000, guid: 223faeffef0e24106a322a007021eaee, type: 3}
+  upgradedHealth: 300
 --- !u!64 &896061163417105591
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -143,8 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327a05d063f3082449afe40a1b9ff710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 300
-  healthBar: {fileID: 5947298644050820073, guid: c35bde4fc9e7e4aad95635022629af32, type: 3}
+  ShowTopMostFoldoutHeaderGroup: 1
+  maxHealth: 300
+  coinReward: 100
 --- !u!114 &1864877414331851267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +189,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.8240385, y: 1.4695373, z: 1.6574843}
   m_Center: {x: 0.004535407, y: 0.71906364, z: 0.022126555}
---- !u!114 &-5533241235143841959
+--- !u!114 &4419118422653486610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,19 +198,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 5491560384211002521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
+  m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
+  GlobalObjectIdHash: 68652823
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  m_InScenePlacedDisabledByDefault: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  m_InScenePlaced: 0
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!1001 &7149829005464429270
 PrefabInstance:
   m_ObjectHideFlags: 0

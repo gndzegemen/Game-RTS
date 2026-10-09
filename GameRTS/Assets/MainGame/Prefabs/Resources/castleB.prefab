@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 5057631329620662910}
   - component: {fileID: 4481221755133503016}
   - component: {fileID: 5721643352887169876}
-  - component: {fileID: -2087072404741149422}
   - component: {fileID: 6271765322004573807}
+  - component: {fileID: 611810253478654515}
   m_Layer: 0
   m_Name: castleB
   m_TagString: Untagged
@@ -31,6 +31,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391843316543500301}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 27.24, y: 10.1, z: 57}
   m_LocalScale: {x: 4, y: 4, z: 4}
@@ -38,7 +39,6 @@ Transform:
   m_Children:
   - {fileID: 602186780382134581}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3437611175459480850
 MeshFilter:
@@ -65,6 +65,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -90,9 +95,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &325107388241952344
 MonoBehaviour:
@@ -106,9 +113,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a11d11c82bbce4dcfa8fb4e173d1c4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingType: 0
+  team: 2
+  displayName: Castle
   cost: 300
-  name: Castle
   sprite: {fileID: 21300000, guid: e9bf7ab6fcbaf47cba3c66e31334106c, type: 3}
+  upgradedHealth: 500
 --- !u!64 &5057631329620662910
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -143,8 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327a05d063f3082449afe40a1b9ff710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 800
-  healthBar: {fileID: 5947298644050820073, guid: c35bde4fc9e7e4aad95635022629af32, type: 3}
+  ShowTopMostFoldoutHeaderGroup: 1
+  maxHealth: 800
+  coinReward: 100
 --- !u!114 &5721643352887169876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,28 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0dac4a808e8f4c4799fc2c62e769066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-2087072404741149422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1391843316543500301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!65 &6271765322004573807
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -200,6 +189,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.8048376, y: 2.532763, z: 1.8523474}
   m_Center: {x: 0, y: 1.2406964, z: -0.023754895}
+--- !u!114 &611810253478654515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391843316543500301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
+  GlobalObjectIdHash: 1498875753
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  m_InScenePlacedDisabledByDefault: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  m_InScenePlaced: 0
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!1001 &6544408884454537760
 PrefabInstance:
   m_ObjectHideFlags: 0
