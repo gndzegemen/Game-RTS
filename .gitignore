@@ -1,0 +1,58 @@
+# Unity tarafından üretilen klasörler (asla commit edilmemeli)
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# IDE / proje dosyaları (Unity yeniden üretir)
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Crash / derleme çıktıları
+sysinfo.txt
+crashlytics-build.properties
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Asset Store araçları
+/[Aa]ssets/AssetStoreTools*
+
+# Multiplayer Play Mode sanal oyuncu klasörleri
+/[Ll]ibrary/VP/
+
+# İşletim sistemi dosyaları
+.DS_Store
+Thumbs.db
+
+# Makineye özel AI/MCP ayarları (yerel token içerir)
+/.mcp.json
+/.codex/config.toml
+/.claude/settings.local.json
+
+# Geçici ekran görüntüleri
+/ui-*.png
