@@ -44,6 +44,12 @@ namespace MainGame.Scripts
         {
             currentHealth.OnValueChanged -= OnHealthValueChanged;
             networkMaxHealth.OnValueChanged -= OnHealthValueChanged;
+
+            // Sahneye yerleştirilmiş objeler (ağaç, bina) yok edilmeden despawn edilir; her makinede gizlenir.
+            if (NetworkObject.InScenePlaced && NetworkManager != null && !NetworkManager.ShutdownInProgress)
+            {
+                gameObject.SetActive(false);
+            }
         }
 
         /// <summary>Yalnızca sunucuda çağrılır.</summary>
@@ -92,7 +98,8 @@ namespace MainGame.Scripts
                 GrantReward(killer);
             }
 
-            NetworkObject.Despawn();
+            // NGO, sahneye yerleştirilmiş ağ objelerinin yok edilmesine karşı uyarır (Despawn(false) önerir).
+            NetworkObject.Despawn(destroy: !NetworkObject.InScenePlaced);
         }
 
         private void OnHealthValueChanged(float previous, float current)
